@@ -1,0 +1,231 @@
+*{
+    padding : 0px;
+    margin : 0px;
+    box-sizing : border-box;
+    font-size : 20px;
+    font-family: sans-serif;
+}
+body{
+    height : 100vh;
+    width : 100vw;
+    background : linear-gradient(-45deg, #ee7752,#e73c7e,#23a6d5,#23d5ab);
+    background-size: 400% 400%;
+    animation : gradient 10s ease infinite;
+}
+@keyframes gradient{
+    0%{
+        background-position : 0% 50%;
+    }
+    50%{
+        background-position : 100% 50%;
+    }
+    100%{
+        background-position : 0% 50%;
+    }
+}
+.container{
+    height : 100vh;
+    width : 100vw;
+    overflow : overlay;
+}
+:root{
+    --color1 : rgb(46, 143, 46);
+    --color2 : black;
+    --color3 : white;
+    --color4 : rgb(7, 206, 7);
+    --color5 : rgb(13, 124, 76);
+}
+
+/* --------------- NAVBAR ----------------- */
+.navbar{
+    width : 100vw;
+    padding-top : 0.25rem;
+    padding-bottom : 1rem;
+    display : flex;
+    justify-content : space-between;
+    align-items : center;
+    background-color: var(--color2);
+    color : var(--color3);
+}
+.navbar .logo{
+    padding : 0.25rem;
+    margin-left : 0.75rem;
+    display : flex;
+}
+.navbar .logo .logoimg{
+    width : 2rem;
+}
+.navbar .logo .heading{
+    font-size : 2rem;
+    font-weight : bold;
+    letter-spacing : 0.125rem;
+    padding-left : 0.5rem;
+}
+.navbar .menu{
+    margin-right : 1rem;
+}
+.navbar .menu .lists{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar .menu .lists li{
+    list-style-type : none;
+}
+.navbar .menu .lists li a{
+    padding : 0.5rem 1rem;
+    text-decoration: none;
+    position : relative;
+    color : var(--color3);
+}
+.navbar .menu .lists li a.home{
+    color : var(--color1);
+    font-weight : bolder;
+}
+.navbar .menu .lists li a::before{
+    content : "";
+    background-color : var(--color1);
+    position : absolute;
+    width : 0rem;
+    height : 0.125rem;
+    left : 0.125rem;
+    right : 0;
+    top : 2.5rem;
+    bottom : 0rem;
+    transition : all 0.5s;
+}
+.navbar .menu .lists li a:hover{
+    color : var(--color1);
+}
+.navbar .menu .lists li a.home:hover::before{
+    width : 4.5rem;
+}
+.navbar .menu .lists li a.eng:hover::before{
+    width : 7rem;
+}
+.navbar .menu .lists li a.hin:hover::before{
+    width : 5.75rem;
+}
+/* --------------- content --------------- */
+.content{
+    display : flex;
+    justify-content : space-around;
+    padding : 3rem 0rem;
+}
+.content .part1{
+    padding-left : 0.5rem;
+}
+.content .part1 .con{
+    font-size : 1.25rem;
+    font-weight : bold;
+    padding-bottom : 0.5rem;
+    text-align : center;
+    color : var(--color1);
+}
+.content .part1 .con span.S{
+    font-size : 2.5rem;
+    font-weight: 100;
+    color : var(--color2);
+}
+.content .part1 .con:nth-child(even){
+    color : var(--color2);
+}
+.content .part1 .buttons{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    margin-top : 2rem;
+}
+.lis , .pre{
+    font-weight : bold;
+    background-color : var(--color2);
+    padding : 1.5rem;
+    font-size: 1.25rem;
+    color : var(--color3);
+    margin : 0rem 1rem 0rem 0rem;
+    border-radius : 1.5rem;
+    transition : transform 0.25s;
+    border : 0.125rem solid var(--color4);
+    cursor : pointer;
+}
+.pre{
+    margin : 0rem 0rem 0rem 1rem;
+}
+.lis:hover , .pre:hover{
+    transform : scale(1.05);
+    color : var(--color3);
+    background-color : var(--color2);
+} 
+.lis:active , .pre:active{
+    color : var(--color5);
+    background-color: black;
+    transform : scale(1);
+}
+.content .part2 .with_img{
+    animation: dance 2s linear infinite;
+}
+.content .part2 .with_img img.main_pic{
+    width : 16rem;
+    display : flex;
+    margin : auto;
+}
+@keyframes dance{
+    0%{
+        transform : translateX(0rem);
+    }
+    33%{
+        transform : translate(0.5rem);
+    }
+    66%{
+        transform : translate(-0.5rem);
+    }
+    100%{
+        transform : translateX(0rem);
+    }
+}
+
+/* --------------- Responsive ---------------- */
+
+@media screen and (max-width : 1000px) {
+    *{
+        font-size : 18px;
+    }
+}
+@media screen and (max-width : 800px) {
+    *{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width : 650px) {
+    *{
+        font-size: 12px;
+    }
+    .content{
+        flex-direction : column-reverse;
+        padding-top : 2rem;
+    }
+    .content .part2{
+        margin-bottom: 1rem;
+    }
+    .buttons{
+        margin-top : 1rem;
+    }
+}
+/* --------------- FOR PHONE --------------- */
+@media screen and (max-width : 415px) {
+    *{
+        font-size: 10px;
+    }
+    .content .part1 .con{
+        font-size: 2rem;
+    }
+    .content .part1 .con span.S{
+        font-size: 2.5rem;
+	  font-weight: bold;
+    }
+}
+@media screen and (max-width : 305px) {
+    *{
+        font-size: 8px;
+    }
+}
